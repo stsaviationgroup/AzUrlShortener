@@ -52,10 +52,9 @@ namespace Cloud5mins.ShortenerTools.Functions
                 _logger.LogInformation("Bad Link, resorting to fallback.");
             }
 
-            var res = req.CreateResponse(HttpStatusCode.Redirect);
-            res.Headers.Add("Location", redirectUrl);
-            return res;
-
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            await response.WriteAsJsonAsync(redirectUrl);
+            return response;
         }
     }
 }
