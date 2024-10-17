@@ -26,13 +26,11 @@ namespace Cloud5mins.ShortenerTools.Functions
             string shortUrl,
             ExecutionContext context)
         {
-            string redirectUrl = "https://azure.com";
+            string redirectUrl = _settings.DefaultRedirectUrl ?? "https://azure.com";
 
 
             if (!string.IsNullOrWhiteSpace(shortUrl))
             {
-                redirectUrl = _settings.DefaultRedirectUrl ?? redirectUrl;
-
                 StorageTableHelper stgHelper = new StorageTableHelper(_settings.DataStorage);
 
                 var tempUrl = new ShortUrlEntity(string.Empty, shortUrl);
