@@ -19,7 +19,7 @@ namespace Cloud5mins.ShortenerTools
         private const string ConversionCode = "FjTG0s5dgWkbLf_8etOZqMzNhmp7u6lUJoXIDiQB9-wRxCKyrPcv4En3Y21aASHV";
         private static readonly int Base = ConversionCode.Length;
         //sets the length of the unique code to add to vanity
-        private const int MinVanityCodeLength = 6;
+        private const int MinVanityCodeLength = 4;
 
         public static async Task<string> GetValidEndUrl(string vanity, StorageTableHelper stgHelper)
         {
